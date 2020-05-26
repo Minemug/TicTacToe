@@ -22,7 +22,6 @@ namespace TicTacToe
     /// </summary>
     public partial class MainWindow : Window
     {
-        Functions functions = new Functions();
 
         public MainWindow()
         {            
@@ -35,50 +34,56 @@ namespace TicTacToe
             {
                 Button0_0.Background = Button1_0.Background = Button2_0.Background = Brushes.GreenYellow;
                 MessageBox.Show("Gracz " + Button0_0.Content + " wygrał!");
+                i = 0;
             }
             else if (Button0_1.Content == Button1_1.Content && Button1_1.Content == Button2_1.Content && Button2_1.Content != null)
             {
                 Button0_1.Background = Button1_1.Background = Button2_1.Background = Brushes.GreenYellow;
                 MessageBox.Show("Gracz " + Button1_1.Content + " wygrał!");
+                i = 0;
             }
             else if(Button0_2.Content == Button1_2.Content && Button1_2.Content == Button2_2.Content && Button2_2.Content != null)
             {
                 Button0_2.Background = Button1_2.Background = Button2_2.Background = Brushes.GreenYellow;
                 MessageBox.Show("Gracz " + Button1_2.Content + " wygrał!");
+                i = 0;
             }
             else if (Button0_0.Content == Button0_1.Content && Button0_1.Content == Button0_2.Content && Button0_2.Content != null)
             {
                 Button0_0.Background = Button0_1.Background = Button0_2.Background = Brushes.GreenYellow;
                 MessageBox.Show("Gracz " + Button0_1.Content + " wygrał!");
+                i = 0;
             }
             else if (Button1_0.Content == Button1_1.Content && Button1_1.Content == Button1_2.Content && Button1_2.Content != null)
             {
                 Button1_0.Background = Button1_1.Background = Button1_2.Background = Brushes.GreenYellow;
                 MessageBox.Show("Gracz " + Button1_1.Content + " wygrał!");
+                i = 0;
             }
             else if (Button2_0.Content == Button2_1.Content && Button2_1.Content == Button2_2.Content && Button2_2.Content != null)
             {
                 Button2_0.Background = Button2_1.Background = Button2_2.Background = Brushes.GreenYellow;
                 MessageBox.Show("Gracz " + Button2_1.Content + " wygrał!");
+                i = 0;
             }
             else if (Button0_0.Content == Button1_1.Content && Button1_1.Content == Button2_2.Content && Button2_2.Content != null)
             {
                 Button0_0.Background = Button1_1.Background = Button2_2.Background = Brushes.GreenYellow;
                 MessageBox.Show("Gracz " + Button0_0.Content + " wygrał!");
+                i = 0;
             }
             else if (Button2_0.Content == Button1_1.Content && Button1_1.Content == Button0_2.Content && Button0_2.Content != null)
             {
                 Button2_0.Background = Button1_1.Background = Button0_2.Background = Brushes.GreenYellow;
                 MessageBox.Show("Gracz " + Button0_2.Content + " wygrał!");
+                i = 0;
             }
-            else if (Button0_0.Content != null && Button0_1.Content != null && Button0_2.Content != null
-                && Button1_0.Content != null && Button1_1.Content != null && Button1_2.Content != null &&
-                Button2_0.Content != null && Button2_1.Content != null && Button2_2.Content != null)
+            else if (i == 9)
             {               
                 MessageBox.Show("Remis!");
+                i = 0;
             }
         }
-
 
         int i = 0;
         public void Button_Click(object sender, RoutedEventArgs e)
@@ -91,26 +96,19 @@ namespace TicTacToe
                 button.Background = new SolidColorBrush(Color.FromArgb(100, 255, 209, 209));
                 CheckIfFinished();
                 PlayerIndicator.Text = "O";
-                PlayerIndicator.Foreground =Brushes.Blue;
-                //button.IsEnabled = false;
+                PlayerIndicator.Foreground = Brushes.Blue;
             }
-            else if(i % 2 == 1) {             
+            else{             
                 button.Content = "O";
                 button.Background = new SolidColorBrush(Color.FromArgb(100, 165, 240, 250));
                 CheckIfFinished();
                 PlayerIndicator.Text = "X";
                 PlayerIndicator.Foreground = Brushes.Red;
-                //button.IsEnabled = false;
             }           
         }
 
-
-
-
-
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {           
             Button0_0.Content = null;
             Button1_0.Content = null;
             Button2_0.Content = null;
@@ -129,11 +127,6 @@ namespace TicTacToe
             Button0_2.Background = Brushes.White;
             Button1_2.Background = Brushes.White;
             Button2_2.Background = Brushes.White;
-
         }
     }
-
-
-
-
 }
